@@ -282,6 +282,10 @@ module.exports = function( grunt, pkg, fallbackLocale ) {
     grunt.log.debug( 'Writing string map to ', stringMapFilename );
     grunt.file.write( stringMapFilename, JSON.stringify( stringMap[ fallbackLocale ], null, '\t' ) );
 
+    grunt.log.writeln( 'Copying Shutterbug' );
+    grunt.file.write( 'build/shutterbug-vendor.js', grunt.file.read( '../chipper/templates/shutterbug-vendor.js' ) );
+    grunt.file.write( 'build/shutterbug.js', grunt.file.read( '../chipper/templates/shutterbug.js' ) );
+
     grunt.log.debug( 'Cleaning temporary files' );
     grunt.file.delete( 'build/' + pkg.name + '.min.js' );
 
